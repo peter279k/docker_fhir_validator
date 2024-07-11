@@ -1,0 +1,11 @@
+FROM sapmachine:11-ubuntu-22.04
+
+LABEL maintainer="Peter Li <peter279k@gmail.com>"
+
+RUN cd /root && \
+    mkdir -p .fhir/packages && \
+    apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -qq -y wget && \
+    wget -O validator_cli.jar https://github.com/hapifhir/org.hl7.fhir.core/releases/download/latest/validator_cli.jar 
+
+ENTRYPOINT [ "bash" ]
