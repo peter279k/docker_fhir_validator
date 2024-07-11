@@ -38,5 +38,8 @@ $ wget -O examples.json.zip https://build.fhir.org/ig/cctwFHIRterm/MOHW_TWCoreIG
 $ rm -rf examples.json && mkdir examples.json && unzip examples.json.zip -d examples.json
 
 # Validate it!
-docker run peter279k/docker_fhir_validator_11:latest -v $PWD/tw.gov.mohw.twcore:/root/.fhir/packages/ -v $PWD/examples.json:/root/ -c "cd /root && java -jar ./examples.json/Patient-pat-example.json -version 4.0 -ig tw.gov.mohw.twcore"
+docker run \
+    -v $PWD/tw.gov.mohw.twcore:/root/.fhir/packages/tw.gov.mohw.twcore \
+    -v $PWD/examples.json:/root/examples.json \
+    peter279k/docker_fhir_validator_11:latest -c "cd /root/ && java -jar validator_cli.jar ./examples.json/Patient-pat-example.json -version 4.0 -ig tw.gov.mohw.twcore"
 ```
