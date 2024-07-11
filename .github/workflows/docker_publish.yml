@@ -1,11 +1,12 @@
 name: Docker Publishing
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
 jobs:
-  cd:
+  up-and-running:
     runs-on: ubuntu-latest
 
     steps:
