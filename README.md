@@ -41,5 +41,5 @@ $ rm -rf examples.json && mkdir examples.json && unzip examples.json.zip -d exam
 docker run \
     -v $PWD/tw.gov.mohw.twcore:/root/.fhir/packages/tw.gov.mohw.twcore \
     -v $PWD/examples.json:/root/examples.json \
-    peter279k/docker_fhir_validator_11:latest -c "cd /root/ && java -jar validator_cli.jar ./examples.json/Patient-pat-example.json -version 4.0 -ig tw.gov.mohw.twcore"
+    peter279k/docker_fhir_validator_11:latest -c "cd /root/ && java -Dfile.encoding=UTF-8 -jar validator_cli.jar ./examples.json/Patient-pat-example.json -version 4.0 -ig tw.gov.mohw.twcore"
 ```
