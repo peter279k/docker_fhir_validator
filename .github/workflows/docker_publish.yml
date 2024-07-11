@@ -15,23 +15,19 @@ jobs:
       - name: Build Docker latest docker_fhir_validator_11 image
         run: |
           docker build -f Dockerfile_JDK_11 -t docker_fhir_validator_11 .
-      - name: Tags docker_fhir_validator_11
+      - name: Tags and push docker_fhir_validator_11
         run: |
           export latest_version=$(curl --silent "https://api.github.com/repos/hapifhir/org.hl7.fhir.core/releases/latest" | grep -E '"name"' | head -n 1 | awk '{print $2}' | sed -e 's/[",\,]//g')
           docker tag docker_fhir_validator_11 ${{ secrets.DOCKER_USER }}/docker_fhir_validator_11:$latest_version
           docker tag docker_fhir_validator_11 ${{ secrets.DOCKER_USER }}/docker_fhir_validator_11:latest
-      - name: Push Docker docker_fhir_validator_11 image
-        run: |
           docker push ${{ secrets.DOCKER_USER }}/docker_fhir_validator_11:$latest_version
           docker push ${{ secrets.DOCKER_USER }}/docker_fhir_validator_11:latest
       - name: Build Docker docker_fhir_validator_17 image
         run: docker build -f Dockerfile_JDK_17 -t docker_fhir_validator_17 .
-      - name: Tags docker_fhir_validator_17
+      - name: Tags and push docker_fhir_validator_17
         run: |
           export latest_version=$(curl --silent "https://api.github.com/repos/hapifhir/org.hl7.fhir.core/releases/latest" | grep -E '"name"' | head -n 1 | awk '{print $2}' | sed -e 's/[",\,]//g')
           docker tag docker_fhir_validator_17 ${{ secrets.DOCKER_USER }}/docker_fhir_validator_17:$latest_version
           docker tag docker_fhir_validator_17 ${{ secrets.DOCKER_USER }}/docker_fhir_validator_17:latest
-      - name: Push Docker docker_fhir_validator_17 image
-        run: |
           docker push ${{ secrets.DOCKER_USER }}/docker_fhir_validator_17:$latest_version
           docker push ${{ secrets.DOCKER_USER }}/docker_fhir_validator_17:latest
