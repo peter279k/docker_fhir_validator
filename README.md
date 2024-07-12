@@ -24,7 +24,7 @@ docker run peter279k/docker_fhir_validator_11:latest java -jar validate_cli.jar 
 - If you want to load package cache with offline validation, run the following commands:
 
 ```sh
-# Download IG package cache folder
+# Download IG package cache folder on the FHIR CI Build
 $ wget -O package.tgz https://build.fhir.org/ig/cctwFHIRterm/MOHW_TWCoreIG_Build/package.tgz
 
 # Create directory named IG name and version
