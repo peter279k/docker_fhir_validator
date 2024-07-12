@@ -19,8 +19,8 @@ jobs:
       - name: Tags and push docker_fhir_validator_11
         run: |
           export latest_version=$(curl --silent "https://api.github.com/repos/hapifhir/org.hl7.fhir.core/releases/latest" | grep -E '"name"' | head -n 1 | awk '{print $2}' | sed -e 's/[",\,]//g')
-          remote_latest=$(curl -sS 'https://registry.hub.docker.com/v2/repositories/peter279k/docker_fhir_validator_11/tags/' | grep -o "$latest_version")
-          if [[ "$remote_latest" == "$latest_version" ]]; then
+          export remote_latest=!$(curl -sS 'https://registry.hub.docker.com/v2/repositories/peter279k/docker_fhir_validator_11/tags/' | grep -c "$latest_version")
+          if [[ "$remote_latest" == "!1" ]]; then
               echo "There is nothing to pull :)."
               exit 0;
           fi;
@@ -33,8 +33,8 @@ jobs:
       - name: Tags and push docker_fhir_validator_17
         run: |
           export latest_version=$(curl --silent "https://api.github.com/repos/hapifhir/org.hl7.fhir.core/releases/latest" | grep -E '"name"' | head -n 1 | awk '{print $2}' | sed -e 's/[",\,]//g')
-          remote_latest=$(curl -sS 'https://registry.hub.docker.com/v2/repositories/peter279k/docker_fhir_validator_17/tags/' | grep -o "$latest_version")
-          if [[ "$remote_latest" == "$latest_version" ]]; then
+          export remote_latest=$(curl -sS 'https://registry.hub.docker.com/v2/repositories/peter279k/docker_fhir_validator_17/tags/' | grep -c "$latest_version")
+          if [[ "$remote_latest" == "!1" ]]; then
               echo "There is nothing to pull :)."
               exit 0;
           fi;
