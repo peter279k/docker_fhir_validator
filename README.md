@@ -27,6 +27,9 @@ docker run peter279k/docker_fhir_validator_11:latest java -jar validate_cli.jar 
 # Download IG package cache folder on the FHIR CI Build
 $ wget -O package.tgz https://build.fhir.org/ig/cctwFHIRterm/MOHW_TWCoreIG_Build/package.tgz
 
+# Or Download IG package cache folder on the Taiwan MOHW
+$ wget -O package.tgz https://twcore.mohw.gov.tw/ig/twcore/package.tgz
+
 # Create directory named IG name and version
 $ mkdir tw.gov.mohw.twcore
 
