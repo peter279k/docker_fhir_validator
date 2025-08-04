@@ -6,8 +6,8 @@ It's the source of Docker image for [FHIR Core Validator](https://github.com/hap
 
 And their released versions are compatible with above FHIR Core Validator since `6.2.10` version.
 
-- The Docker image with OpenJDK 11 is available on the [Docker hub](https://hub.docker.com/repository/docker/peter279k/docker_fhir_validator_11).
-- The Docker image with OpenJDK 17 is available on the [Docker hub](https://hub.docker.com/repository/docker/peter279k/docker_fhir_validator_17).
+- The Docker image with OpenJDK 11 is available on the [Docker hub](https://hub.docker.com/r/peter279k/docker_fhir_validator_11).
+- The Docker image with OpenJDK 17 is available on the [Docker hub](https://hub.docker.com/r/peter279k/docker_fhir_validator_17).
 
 # Usage
 
